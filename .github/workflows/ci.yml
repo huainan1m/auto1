@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "05/85 11-17 * * MON-SAT"
+    - cron: "17/13 11-17 * * MON-SAT"
 
 jobs:
   autogreen:
@@ -16,6 +16,7 @@ jobs:
 
       - name: Auto green
         run: |
+          sleep $((RANDOM % 1000))
           git config --local user.email "2015210899@bupt.cn"
           git config --local user.name "huainan1m"
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
