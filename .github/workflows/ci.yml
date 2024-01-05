@@ -14,9 +14,15 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v3
 
-      - name: Auto green
+      - name: should skip
+        id: check_skip
         run: |
-          sleep $[RANDOM % 1600]
+          should_skip=$(($((RANDOM % 2)) == 1))
+          echo "::set-output name=should_skip::$should_skip"
+      
+      - name: Auto green
+        if: steps.check_skip.outputs.should_skip != 'true'
+        run: |
           git config --local user.email "2015210899@bupt.cn"
           git config --local user.name "huainan1m"
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
