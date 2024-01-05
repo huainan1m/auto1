@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "23/31 12,17 * * MON-SAT"
+    - cron: "36/31 12,18 * * MON-SAT"
 
 jobs:
   autogreen:
