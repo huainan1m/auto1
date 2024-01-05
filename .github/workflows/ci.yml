@@ -20,7 +20,7 @@ jobs:
       - name: should skip
         id: check_skip
         run: |
-          should_skip=$(($((RANDOM % 2)) == 1))
+          should_skip=$([ $((RANDOM % 2)) -eq 1 ] && echo true || echo false)
           echo "should_skip=$should_skip" >> $GITHUB_OUTPUT
       
       - name: Auto green
