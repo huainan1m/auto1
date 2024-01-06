@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "23/31 12,17 * * MON-SAT"
+    - cron: "23/31 3,10,17 * * MON-SAT"
 #sleep $[RANDOM % 1500]
 #echo "{name}={value}" >> $GITHUB_OUTPUT
 #echo "::set-output name=should_skip::$should_skip"
