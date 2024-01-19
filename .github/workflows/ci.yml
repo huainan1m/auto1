@@ -21,9 +21,9 @@ jobs:
         id: check_skip
         run: |
           RANDOM=$(date +%j)
-          t=$((RANDOM >> 14))
+          t=$((RANDOM%2))
           RANDOM=$(date +%s%N)
-          c=$((RANDOM >> 14))
+          c=$((RANDOM%2))
           should_skip=$([ $t -eq 1 -a $c -eq 1 ] && echo true || echo false)
           echo "should_skip=$should_skip" >> $GITHUB_OUTPUT
       
