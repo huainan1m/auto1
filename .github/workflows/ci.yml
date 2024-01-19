@@ -20,7 +20,7 @@ jobs:
       - name: should skip
         id: check_skip
         run: |
-          RANDOM=$(date +%j)
+          RANDOM=$(date +%-j)
           t=$((RANDOM%2))
           RANDOM=$(date +%s%N)
           c=$((RANDOM%2))
